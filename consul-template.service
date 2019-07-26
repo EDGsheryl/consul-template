@@ -1,0 +1,7 @@
+#!/bin/sh
+
+exec consul-template \
+     -consul-addr=${MY_CONSUL_URL}:8500 \
+     -template "/etc/consul-templates/nginx.conf.ctmpl:/etc/nginx/conf.d/app.conf:nginx -s reload" \
+     --log-level=debug
+
